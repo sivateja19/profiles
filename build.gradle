@@ -1,6 +1,7 @@
 group 'com.siva.profiles'
 version '1.0-SNAPSHOT'
 
+
 buildscript {
     repositories {
         mavenCentral()
@@ -16,14 +17,16 @@ apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
 jar {
-    baseName = 'gs-spring-boot'
-    version =  '0.1.0'
+    baseName = 'profiles-application'
+    version =  version
 }
 
 repositories {
     mavenCentral()
 }
-
+processResources {
+    expand(project.properties)
+}
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
